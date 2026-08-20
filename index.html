@@ -30,12 +30,44 @@
         .rotate-animation {
             animation: spin 15s linear infinite;
         }
+        
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
-    </head>
+
+    <style>
+        .stats-banner {
+            background: radial-gradient(circle at 10% 100%, rgba(70, 44, 130, 0.6) 0%, transparent 60%), linear-gradient(90deg, #2b1b54 0%, #1f1b4a 40%, #151433 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .stats-banner h2 {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        
+        .stats-banner span.fs-30 {
+            color: #ffffff !important;
+            opacity: 0.8;
+            margin-left: 2px;
+        }
+        
+        .stats-banner .fs-14 {
+            color: #d1d1e0;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
 
 <body class="dark-scheme">
 
@@ -118,29 +150,29 @@
                 </div>
             </div>
         </section>
-        <section class="bg-dark section-dark text-light pt-60 pb-60 border-top border-bottom border-white-op-1">
+        <section class="section-dark text-light pt-60 pb-60">
             <div class="container">
-                <div class="row text-center g-4">
+                <div class="stats-banner row text-center g-4 align-items-center">
                     <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".2s">
-                        <h2 class="fs-60 id-color mb-0">50<span class="fs-30 text-white">+</span></h2>
+                        <h2 class="fs-60 mb-0">50<span class="fs-30">+</span></h2>
                         <span class="fs-14 text-uppercase letter-spacing-1">Projects Delivered</span>
                     </div>
                     <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".4s">
-                        <h2 class="fs-60 id-color mb-0">3<span class="fs-30 text-white">+</span></h2>
+                        <h2 class="fs-60 mb-0">3<span class="fs-30">+</span></h2>
                         <span class="fs-14 text-uppercase letter-spacing-1">Years Experience</span>
                     </div>
                     <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".6s">
-                        <h2 class="fs-60 id-color mb-0">50<span class="fs-30 text-white">+</span></h2>
+                        <h2 class="fs-60 mb-0">50<span class="fs-30">+</span></h2>
                         <span class="fs-14 text-uppercase letter-spacing-1">Happy Clients</span>
                     </div>
                     <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".8s">
-                        <h2 class="fs-60 id-color mb-0">100<span class="fs-30 text-white">%</span></h2>
+                        <h2 class="fs-60 mb-0">100<span class="fs-30">%</span></h2>
                         <span class="fs-14 text-uppercase letter-spacing-1">Job Success</span>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="section-about" class="bg-dark section-dark text-light pb-5">
+        <section id="section-about" style="padding: 3px 0 80px 0 !important;" class="bg-dark section-dark text-light pb-5">
             <div class="container">
                 <div class="row gx-5 align-items-center justify-content-between">
                     <div class="col-lg-7">
@@ -1180,7 +1212,7 @@
             </div>
         </section>
 
-        <section class="bg-color text-light pt-60 pb-60">
+        <section class="bg-color text-light pt-60 pb-1">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-12 text-lg-start text-center mb-sm-30">
@@ -1320,193 +1352,205 @@
         <script src="js/designesia.js"></script>
         <script src="js/custom-marquee.js"></script>
 
-    
 
 
-    
 
 
-    
 
 
-    <!-- Emoji Cursor -->
-    <script>
-        function emojiCursor(options) {
-            let hasWrapperEl = options && options.element;
-            let element = hasWrapperEl || document.body;
-            // Emojis array for the trail
-            let emojis = options && options.emojis ? options.emojis : ["🚀", "💻", "🔥", "✨", "☕", "👨‍💻", "🎨"];
-            
-            let width = window.innerWidth;
-            let height = window.innerHeight;
-            let cursor = { x: width / 2, y: width / 2 };
-            let particles = [];
-            let canvas, context, animationFrame;
 
-            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-            prefersReducedMotion.onchange = () => {
-                if (prefersReducedMotion.matches) {
-                    destroy();
-                } else {
-                    init();
-                }
-            };
 
-            function init() {
-                if (prefersReducedMotion.matches) {
-                    return false;
-                }
+        <!-- Emoji Cursor -->
+        <script>
+            function emojiCursor(options) {
+                let hasWrapperEl = options && options.element;
+                let element = hasWrapperEl || document.body;
+                // Emojis array for the trail
+                let emojis = options && options.emojis ? options.emojis : ["🚀", "💻", "🔥", "✨", "☕", "👨‍💻", "🎨"];
 
-                canvas = document.createElement("canvas");
-                context = canvas.getContext("2d");
+                let width = window.innerWidth;
+                let height = window.innerHeight;
+                let cursor = {
+                    x: width / 2,
+                    y: width / 2
+                };
+                let particles = [];
+                let canvas, context, animationFrame;
 
-                canvas.style.top = "0px";
-                canvas.style.left = "0px";
-                canvas.style.pointerEvents = "none";
-                canvas.style.zIndex = options && options.zIndex ? options.zIndex : "9999999999";
+                const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-                if (hasWrapperEl) {
-                    canvas.style.position = "absolute";
-                    element.appendChild(canvas);
-                    canvas.width = element.clientWidth;
-                    canvas.height = element.clientHeight;
-                } else {
-                    canvas.style.position = "fixed";
-                    document.body.appendChild(canvas);
-                    canvas.width = width;
-                    canvas.height = height;
-                }
-
-                bindEvents();
-                loop();
-            }
-
-            function bindEvents() {
-                element.addEventListener("mousemove", onMouseMove);
-                element.addEventListener("touchmove", onTouchMove, { passive: true });
-                element.addEventListener("touchstart", onTouchMove, { passive: true });
-                window.addEventListener("resize", onWindowResize);
-            }
-
-            function onWindowResize(e) {
-                width = window.innerWidth;
-                height = window.innerHeight;
-
-                if (hasWrapperEl) {
-                    canvas.width = element.clientWidth;
-                    canvas.height = element.clientHeight;
-                } else {
-                    canvas.width = width;
-                    canvas.height = height;
-                }
-            }
-
-            function onTouchMove(e) {
-                if (e.touches.length > 0) {
-                    for (let i = 0; i < e.touches.length; i++) {
-                        addParticle(e.touches[i].clientX, e.touches[i].clientY);
+                prefersReducedMotion.onchange = () => {
+                    if (prefersReducedMotion.matches) {
+                        destroy();
+                    } else {
+                        init();
                     }
-                }
-            }
+                };
 
-            function onMouseMove(e) {
-                if (hasWrapperEl) {
-                    const boundingRect = element.getBoundingClientRect();
-                    cursor.x = e.clientX - boundingRect.left;
-                    cursor.y = e.clientY - boundingRect.top;
-                } else {
-                    cursor.x = e.clientX;
-                    cursor.y = e.clientY;
-                }
+                function init() {
+                    if (prefersReducedMotion.matches) {
+                        return false;
+                    }
 
-                // Throttle emoji creation slightly so it's not too cluttered
-                if (Math.random() < 0.6) {
-                    addParticle(cursor.x, cursor.y);
-                }
-            }
+                    canvas = document.createElement("canvas");
+                    context = canvas.getContext("2d");
 
-            function addParticle(x, y) {
-                particles.push(new Particle(x, y));
-            }
+                    canvas.style.top = "0px";
+                    canvas.style.left = "0px";
+                    canvas.style.pointerEvents = "none";
+                    canvas.style.zIndex = options && options.zIndex ? options.zIndex : "9999999999";
 
-            function updateParticles() {
-                if (particles.length == 0) {
-                    return;
-                }
+                    if (hasWrapperEl) {
+                        canvas.style.position = "absolute";
+                        element.appendChild(canvas);
+                        canvas.width = element.clientWidth;
+                        canvas.height = element.clientHeight;
+                    } else {
+                        canvas.style.position = "fixed";
+                        document.body.appendChild(canvas);
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
 
-                context.clearRect(0, 0, width, height);
-
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update(context);
+                    bindEvents();
+                    loop();
                 }
 
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    if (particles[i].lifeSpan < 0) {
-                        particles.splice(i, 1);
+                function bindEvents() {
+                    element.addEventListener("mousemove", onMouseMove);
+                    element.addEventListener("touchmove", onTouchMove, {
+                        passive: true
+                    });
+                    element.addEventListener("touchstart", onTouchMove, {
+                        passive: true
+                    });
+                    window.addEventListener("resize", onWindowResize);
+                }
+
+                function onWindowResize(e) {
+                    width = window.innerWidth;
+                    height = window.innerHeight;
+
+                    if (hasWrapperEl) {
+                        canvas.width = element.clientWidth;
+                        canvas.height = element.clientHeight;
+                    } else {
+                        canvas.width = width;
+                        canvas.height = height;
                     }
                 }
 
-                if (particles.length == 0) {
+                function onTouchMove(e) {
+                    if (e.touches.length > 0) {
+                        for (let i = 0; i < e.touches.length; i++) {
+                            addParticle(e.touches[i].clientX, e.touches[i].clientY);
+                        }
+                    }
+                }
+
+                function onMouseMove(e) {
+                    if (hasWrapperEl) {
+                        const boundingRect = element.getBoundingClientRect();
+                        cursor.x = e.clientX - boundingRect.left;
+                        cursor.y = e.clientY - boundingRect.top;
+                    } else {
+                        cursor.x = e.clientX;
+                        cursor.y = e.clientY;
+                    }
+
+                    // Throttle emoji creation slightly so it's not too cluttered
+                    if (Math.random() < 0.6) {
+                        addParticle(cursor.x, cursor.y);
+                    }
+                }
+
+                function addParticle(x, y) {
+                    particles.push(new Particle(x, y));
+                }
+
+                function updateParticles() {
+                    if (particles.length == 0) {
+                        return;
+                    }
+
                     context.clearRect(0, 0, width, height);
+
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update(context);
+                    }
+
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        if (particles[i].lifeSpan < 0) {
+                            particles.splice(i, 1);
+                        }
+                    }
+
+                    if (particles.length == 0) {
+                        context.clearRect(0, 0, width, height);
+                    }
+                }
+
+                function loop() {
+                    updateParticles();
+                    animationFrame = requestAnimationFrame(loop);
+                }
+
+                function destroy() {
+                    canvas.remove();
+                    cancelAnimationFrame(animationFrame);
+                    element.removeEventListener("mousemove", onMouseMove);
+                    element.removeEventListener("touchmove", onTouchMove);
+                    element.removeEventListener("touchstart", onTouchMove);
+                    window.addEventListener("resize", onWindowResize);
+                }
+
+                function Particle(x, y) {
+                    const lifeSpan = Math.floor(Math.random() * 40 + 40);
+                    this.initialLifeSpan = lifeSpan;
+                    this.lifeSpan = lifeSpan;
+                    // Emojis float up and slightly side to side
+                    this.velocity = {
+                        x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 2),
+                        y: -1 + Math.random() * -2,
+                    };
+                    this.position = {
+                        x: x,
+                        y: y
+                    };
+                    this.emoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+                    this.update = function(context) {
+                        this.position.x += this.velocity.x;
+                        this.position.y += this.velocity.y;
+                        this.lifeSpan--;
+
+                        const scale = Math.max(0, this.lifeSpan / this.initialLifeSpan);
+
+                        context.globalAlpha = scale; // Fade out
+                        context.font = "24px Arial"; // Size of emoji
+                        context.fillText(this.emoji, this.position.x, this.position.y);
+                        context.globalAlpha = 1;
+                    };
+                }
+
+                init();
+
+                return {
+                    destroy: destroy
                 }
             }
 
-            function loop() {
-                updateParticles();
-                animationFrame = requestAnimationFrame(loop);
-            }
-
-            function destroy() {
-                canvas.remove();
-                cancelAnimationFrame(animationFrame);
-                element.removeEventListener("mousemove", onMouseMove);
-                element.removeEventListener("touchmove", onTouchMove);
-                element.removeEventListener("touchstart", onTouchMove);
-                window.addEventListener("resize", onWindowResize);
-            }
-
-            function Particle(x, y) {
-                const lifeSpan = Math.floor(Math.random() * 40 + 40);
-                this.initialLifeSpan = lifeSpan;
-                this.lifeSpan = lifeSpan;
-                // Emojis float up and slightly side to side
-                this.velocity = {
-                    x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() * 2),
-                    y: -1 + Math.random() * -2, 
-                };
-                this.position = { x: x, y: y };
-                this.emoji = emojis[Math.floor(Math.random() * emojis.length)];
-
-                this.update = function (context) {
-                    this.position.x += this.velocity.x;
-                    this.position.y += this.velocity.y;
-                    this.lifeSpan--;
-
-                    const scale = Math.max(0, this.lifeSpan / this.initialLifeSpan);
-
-                    context.globalAlpha = scale; // Fade out
-                    context.font = "24px Arial"; // Size of emoji
-                    context.fillText(this.emoji, this.position.x, this.position.y);
-                    context.globalAlpha = 1;
-                };
-            }
-
-            init();
-
-            return {
-                destroy: destroy
-            }
-        }
-
-        // Initialize Emoji Cursor on Load
-        document.addEventListener("DOMContentLoaded", () => {
-            if (!window.matchMedia("(pointer: coarse)").matches) {
-                // You can change emojis by passing options: { emojis: ["🚀", "🔥"] }
-                emojiCursor({ emojis: ["🚀", "💻", "✨", "☕", "👨‍💻", "🎨", "🌟"] });
-            }
-        });
-    </script>
+            // Initialize Emoji Cursor on Load
+            document.addEventListener("DOMContentLoaded", () => {
+                if (!window.matchMedia("(pointer: coarse)").matches) {
+                    // You can change emojis by passing options: { emojis: ["🚀", "🔥"] }
+                    emojiCursor({
+                        emojis: ["🚀", "💻", "✨", "☕", "👨‍💻", "🎨", "🌟"]
+                    });
+                }
+            });
+        </script>
 
 </body>
 
