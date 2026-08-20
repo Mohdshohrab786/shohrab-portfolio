@@ -25,7 +25,17 @@
             }
         }
     </style>
-</head>
+
+    <style>
+        .rotate-animation {
+            animation: spin 15s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    </head>
 
 <body class="dark-scheme">
 
@@ -186,7 +196,7 @@
                     <div class="col-lg-5">
                         <div class="wow scaleIn position-relative">
                             <div>
-                                <img src="images/misc/c1.webp" class="w-100 rounded-2" alt="Shohrab">
+                                <img src="images/misc/c1.webp" class="w-100 rounded-2 rotate-animation" alt="Shohrab">
                             </div>
                         </div>
                     </div>
